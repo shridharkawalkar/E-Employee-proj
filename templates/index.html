@@ -88,23 +88,22 @@ table {
 
 {% if records %}
     {% if records.has_previous %}
-    <a href="?page={{ records.previous_page_number }}&?order_by={{order_by}}">previous</a>
+    <a href="/?page={{ records.previous_page_number }}&?order_by={{order_by}}">previous</a>
     {% endif %}
     <a>Page {{ records.number }} of {{ records.paginator.num_pages }}</a>
     {% if records.has_next %}
-    <a href="?page={{ records.next_page_number }}&?order_by={{order_by}}">next</a>
+    <a href="/?page={{ records.next_page_number }}&?order_by={{order_by}}">next</a>
     {% endif %}
 {% endif %}
 
 {% if records %}
 	<table class="table-bordered ">
-	
 	<thead>
 	    <tr>
 	        <th>ID</th>
 	        <th>First Name </th>
-	        <th>Last Name <a class="glyphicon" href="?order_by=last_name">Sort</a></th>
-	        <th>Joining Date <a class="glyphicon" href="?order_by=joining_date">Sort</a></th>
+	        <th><a href="?order_by=last_name">Last Name </a></th>
+	        <th><a href="?order_by=joining_date">Joining Date</a></th>
 	        <th>Department </th>
 	    </tr>
 	</thead>	
@@ -115,6 +114,8 @@ table {
 		<td>{{record.last_name}}</td>
 		<td>{{record.joining_date}}</td>
 		<td>{{record.department}}</td>
+		<td><a href="/emp/{{record.pk}}/">Edit</a></td>
+		
 	</tr>
 	{% endfor %}
 	</table>

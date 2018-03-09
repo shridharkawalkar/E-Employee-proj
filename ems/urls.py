@@ -19,5 +19,6 @@ from dashboard.views import index
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
-
+    url(r'^emp/$', index, name='emp'),
+    url(r'^emp/(?P<emp_id>\d+)/$', index, name='emp_id'),
 ]

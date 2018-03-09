@@ -6,10 +6,10 @@ invalid_date_error_messages = {
 }
 class EmployeeForm(ModelForm):
     class Meta:
+        model = Employee
         dob = DateField(required=False, input_formats='%Y-%m-%d', error_messages=invalid_date_error_messages)
         joining_date = DateField(required=False, input_formats='%Y-%m-%d', error_messages=invalid_date_error_messages)
 
-        model = Employee
         fields = ["first_name","last_name", "dob", "joining_date", "permanent_address", "designation", "department", "email", "gender", "phone_number"]
         labels = {
             'dob': ('Date Of Birth'),
