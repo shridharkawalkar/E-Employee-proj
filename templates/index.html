@@ -1,0 +1,124 @@
+
+<style>
+.form-table{
+width: 600px;
+margin: 0 auto;
+}
+.form-table table{
+width: 100%;
+}
+.form-table th label{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-align: right;
+
+}
+  .form-table td input, .form-table td select{  display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+	}
+	input[type="submit"]{
+		background-color: #4CAF50;
+		border:solid 1px;
+		padding: 10px 25px;
+		color: #fff;
+		margin-bottom: 30px;
+		margin: 11px;
+		display: block;
+	}
+	.sucess-message{
+		color: #4CAF50;
+		text-align: center;
+		display: block;
+		font-family: Arial, Helvetica, sans-serif;
+		padding: 20px 0;
+	}
+	.button-sec{
+		width: 120px;
+		margin: 0 auto;
+	}
+	.table-bordered {
+    border: 1px solid #ddd;
+		width: 100%;
+		font-family: Arial, Helvetica, sans-serif;
+
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+
+}
+.table>tbody>tr>td{
+	padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.table-bordered>tbody>tr>td{
+	    border: 1px solid #ddd;
+			padding: 8px;
+			line-height: 1.42857143;
+    vertical-align: top;
+}
+</style>
+<h1> <center> Employee Management System </h1>
+
+<form method="post" action="">
+{% csrf_token %}
+{% if success_message %}
+<div class="sucess-message">	{{success_message}}</div>
+{% endif %}
+<table class="form-table">
+{{form}}
+</table>
+<div class="button-sec"><input type="submit" value="Submit Form"/></div>
+</form>
+
+{% if records %}
+    {% if records.has_previous %}
+    <a href="?page={{ records.previous_page_number }}&?order_by={{order_by}}">previous</a>
+    {% endif %}
+    <a>Page {{ records.number }} of {{ records.paginator.num_pages }}</a>
+    {% if records.has_next %}
+    <a href="?page={{ records.next_page_number }}&?order_by={{order_by}}">next</a>
+    {% endif %}
+{% endif %}
+
+{% if records %}
+	<table class="table-bordered ">
+	
+	<thead>
+	    <tr>
+	        <th>ID</th>
+	        <th>First Name </th>
+	        <th>Last Name <a class="glyphicon" href="?order_by=last_name">Sort</a></th>
+	        <th>Joining Date <a class="glyphicon" href="?order_by=joining_date">Sort</a></th>
+	        <th>Department </th>
+	    </tr>
+	</thead>	
+	{% for record in records %}
+	<tr>
+		<td>{{record.pk}}</td>
+		<td>{{record.first_name}}</td>
+		<td>{{record.last_name}}</td>
+		<td>{{record.joining_date}}</td>
+		<td>{{record.department}}</td>
+	</tr>
+	{% endfor %}
+	</table>
+{% else %}
+No records found 
+{% endif %}
+
