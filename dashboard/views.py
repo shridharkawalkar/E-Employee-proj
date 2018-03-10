@@ -10,7 +10,7 @@ from django.db.models.functions import Lower
 def index(request, emp_id =None):
     order_by = request.GET.get('order_by','pk')
     records = Employee.objects.all().order_by(Lower(order_by))
-    paginator = Paginator(records, 10)
+    paginator = Paginator(records, 3)
     page = request.GET.get('page')
     try:
         records = paginator.page(page)
