@@ -1,10 +1,15 @@
 Employee Management
 
 Employee management system is built for adding new employee details and also update the employee details.
+
+
 Prerequisites
 Python 3
 Django ==1.11.11
+
+
 Getting Started
+
 Clone the below git repository:
 https://github.com/shridhar22/E-Employee
 
