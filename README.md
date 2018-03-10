@@ -30,11 +30,12 @@ http://127.0.0.1:8000
 
 
 
-Built With :-
+Built With
 
-Django- The web framework used 
-Python – Coding language
-Pycharm - Used to develope the project 					
+    Django - The web framework used
+    Python - Programming language
+    Pycharm- Editor used
+			
 
 
 
