@@ -18,7 +18,7 @@ Django==1.11.11
 Getting Started :-
 
 Clone the below git repository:
-https://github.com/shridhar22/E-Employee
+https://github.com/shridharkawalkar/E-Employee-proj
 
 Install Django==1.11.11 
 
